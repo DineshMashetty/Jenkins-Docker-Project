@@ -1,6 +1,6 @@
 FROM  centos:latest
 MAINTAINER dineshm12101997@gmail.com
-#RUN yum install -y httpd \
+RUN yum install -y httpd 
  #zip\
  #unzip
 #ADD https://www.free-css.com/free-css-templates/page289/zon.zip /var/www/html/
