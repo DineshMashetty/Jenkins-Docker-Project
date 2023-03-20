@@ -1,11 +1,16 @@
-FROM ubuntu:latest
-RUN apt-get -y update
-RUN apt-get instaall -y apache2 curl
-EXPOSE 80
+
+FROM centos:latest
+RUN yum install httpd -y
+RUN yum install git -y
+COPY index.html /var/www/html
+COPY . /var/www/html
 WORKDIR /var/www/html
-COPY index.html /var/www/html/index.html
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
+RUN touch index.php
+RUN echo "Hello KPMG India" >> /var/www/html/index.php
+ENV DocumentRoot=/var/www/html/
+EXPOSE 80
 CMD ["-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd"]
 
 #FROM  centos:latest
 #MAINTAINER dineshm12101997@gmail.com
