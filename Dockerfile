@@ -1,11 +1,11 @@
-FROM centos
-RUN yum install httpd -y
-COPY index.html /var/www/html/
-
-CMD [“/usr/sbin/httpd”,” -D”,” FOREGROUND”]
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get instaall -y apache2 curl
 EXPOSE 80
-
-
+WORKDIR /var/www/html
+COPY index.html /var/www/html/index.html
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D", "FOREGROUND"]
 
 #FROM  centos:latest
 #MAINTAINER dineshm12101997@gmail.com
