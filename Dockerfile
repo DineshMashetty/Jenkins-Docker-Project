@@ -1,4 +1,4 @@
-FROM CentOs
+FROM centos
 RUN yum install httpd -y
 RUN yum install git -y
 COPY index.html /var/www/html
