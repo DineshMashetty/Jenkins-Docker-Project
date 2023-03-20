@@ -1,6 +1,16 @@
-FROM  centos:latest
-MAINTAINER dineshm12101997@gmail.com
+FROM centos
 RUN yum install httpd -y
+COPY index.html /var/www/html/
+
+CMD [“/usr/sbin/httpd”,” -D”,” FOREGROUND”]
+EXPOSE 80
+
+
+
+#FROM  centos:latest
+#MAINTAINER dineshm12101997@gmail.com
+#RUN apt update
+#RUN yum install httpd -y
  #zip\
  #unzip
 #ADD https://www.free-css.com/free-css-templates/page289/zon.zip /var/www/html/
